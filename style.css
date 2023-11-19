@@ -1,0 +1,58 @@
+#grid-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #333;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "l r";
+}
+
+#left-sidebar {
+  background: #494;
+  border-radius: 10px;
+  margin: 10px;
+  grid-area: l;
+  max-height: calc(100% - 40px);
+  overflow: scroll;
+}
+
+#clear-name {
+  position: absolute;
+  left: 37%;
+  width: 2vw;
+  top: 25px;
+  height: 2vw;
+  background: #a6a;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+#name {
+  position: absolute;
+  left: 40%;
+  width: 45%;
+  top: 20px;
+  background: #66a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.lex-entry {
+  background: #6a6;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.glyph-part {
+  position: absolute;
+  background: black;
+  transition: 0.2s;
+  cursor: pointer;
+}
