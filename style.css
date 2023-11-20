@@ -1,3 +1,7 @@
+* {
+  user-select: none;
+}
+
 #grid-container {
   position: absolute;
   width: 100%;
@@ -35,11 +39,36 @@
 #name {
   position: absolute;
   left: 40%;
-  width: 45%;
+  right: 15%;
   top: 20px;
-  background: #66a;
+  background: #88c;
   border-radius: 10px;
   padding: 10px;
+  z-index: 2;
+}
+
+#save {
+  position: absolute;
+  left: 40%;
+  right: 15%;
+  top: 20px;
+  background: #449;
+  border-radius: 10px;
+  padding: 3px;
+  transition: 0.3s;
+}
+
+#save-name {
+  border-radius: 10px;
+  padding: 3px;
+  width: 100%;
+  background: #66a;
+  outline: none;
+  font-size: 14px;
+}
+
+#save-name::placeholder {
+  color: black;
 }
 
 .lex-entry {
@@ -50,9 +79,17 @@
   cursor: pointer;
 }
 
+.lex-custom {
+  background: #a6a;
+}
+
 .glyph-part {
   position: absolute;
   background: black;
   transition: 0.2s;
   cursor: pointer;
+}
+
+.help {
+  padding: 10px;
 }
