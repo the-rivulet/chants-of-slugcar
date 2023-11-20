@@ -123,6 +123,8 @@ function updateStuff() {
   }
   let match = Object.entries(lexica).filter(x => x[1].filter(y => active.includes(y)).length == x[1].length && x[1].length == active.length);
   if(active.length) getId("name").textContent = (match.length ? match.map(x => x[0]).join("/") : "Unknown Glyph " + active.join("-"));
+  // Find all the glyphs that could be part of this one
+  let subsets = Object.keys(lexica).filter(x => (lexica[x] as number)); // TODO!
   if(match.length || !active.length) {
     getId("save").style.top = "20px";
   } else {
@@ -206,6 +208,7 @@ export function Initialize() {
   getId("clear-name").onclick = () => {
     for(let g = 0; g < 20; g++) getId("glyph-" + g).style.opacity = "0.1";
     getId("name").textContent = "Select a glyph or create one by clicking the lines";
+    getId("save").style.top = "20px";
   }
   // Saving
   getId("save-name").onchange = () => {
