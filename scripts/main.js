@@ -8,7 +8,7 @@ document.onkeyup = (e) => { if (e.key == "Shift")
 let lexica = {
     Allowed: [4, 9, 15],
     Attack: [5, 6], Hostile: [5, 6],
-    And: [19],
+    And: [19], Plural: [19],
     Big: [0, 1, 4, 9],
     Create: [4, 5, 6, 7],
     Creature: [3, 8, 10], Me: [3, 8, 10],
@@ -34,7 +34,11 @@ let lexica = {
     Water: [8, 14, 15],
     West: [5, 14, 16]
 };
+let madeFrom = {};
+for (let i in lexica)
+    madeFrom[i] = [];
 let customs = [];
+let components = [];
 let add = (name, ...from) => {
     let errors = from.filter(x => !Object.keys(lexica).includes(x));
     if (errors.length) {
@@ -46,6 +50,7 @@ let add = (name, ...from) => {
         return;
     }
     lexica[name] = from.map(x => lexica[x]).flat().filter((x, i, a) => a.indexOf(x) == i);
+    madeFrom[name] = from.length == 1 ? madeFrom[from[0]] : from;
 };
 // Other stuff
 add("Alive", "No", "Death");
@@ -85,7 +90,7 @@ add("Kill", "Hurt", "Death");
 add("Killer", "Kill", "Creature");
 add("Leave", "Go", "Far");
 add("Looks to the Moon", "Water", "Iterator");
-add("One", "No", "And");
+add("One", "No", "Plural");
 add("Open", "Allowed", "Go");
 add("Outer Expanse", "West", "Place");
 add("Forbidden", "No", "Open");
@@ -96,7 +101,7 @@ add("Prey", "Edible", "Creature");
 add("Purposed", "Iterator", "Created");
 add("Rain", "Kill", "Water");
 add("Reproduce", "Create", "Creature");
-add("Return", "Approach", "And");
+add("Return", "Approach", "Plural");
 add("Rock", "Attack", "Object");
 add("Sad", "Bad", "Emotion");
 add("Silent", "No", "Talk");
@@ -117,21 +122,25 @@ add("World", "Big", "Place");
 add("You", "No", "Me");
 // Plurals
 for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Spear", "Weapon"])
-    add(i + "s", i, "And");
-add("Enemies", "Enemy", "And");
+    add(i + "s", i, "Plural");
+add("Enemies", "Enemy", "Plural");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
     if (!active.length) {
         getId("name").textContent = "Empty Glyph";
     }
     let match = Object.entries(lexica).filter(x => x[1].filter(y => active.includes(y)).length == x[1].length && x[1].length == active.length);
+    let curse = (x) => madeFrom[x] ? (madeFrom[x].length ? " (" + madeFrom[x].join(" + ") + ")" : "") : "ERROR";
+    let recurse = (x) => madeFrom[x] ? (madeFrom[x].length ? " (" + madeFrom[x].map(y => y + curse(y)).join(" + ") + ")" : "") : "ERROR";
+    let recurse2 = (x) => madeFrom[x] ? madeFrom[x].map(y => [y, ...recurse2(y)]) : ["ERROR"];
+    let recursed = components.map(x => [x, ...recurse2(x).flat(9)]).filter((x, i, a) => { let b = a.filter(y => x.slice(1).filter(z => y.includes(z)).length == x.length - 1); return b[b.length - 1] == x; }).map(x => x[0]);
     if (active.length)
-        getId("name").textContent = (match.length ? match.map(x => x[0]).join("/") : "Unknown Glyph " + active.join("-"));
+        getId("name").textContent = (match.length ? match.map(x => x[0]).join("/") + recurse(match[0][0]) : "Unknown Glyph" + (recursed.length ? " (" + recursed.map(y => y + curse(y)).join(" + ") + ")" : ""));
     if (match.length || !active.length) {
         getId("save").style.top = "20px";
     }
     else {
-        getId("save").style.top = "65px";
+        getId("save").style.top = "85px";
     }
 }
 export function Initialize() {
@@ -140,6 +149,7 @@ export function Initialize() {
             i.style.opacity = "0.1";
         else
             i.style.opacity = "1";
+        components = [];
         updateStuff();
     };
     // Add lines
@@ -203,8 +213,10 @@ export function Initialize() {
             if (!shifting) {
                 for (let g = 0; g < 20; g++)
                     getId("glyph-" + g).style.opacity = "0.1";
+                components = [];
             }
             let l = lexica[i];
+            components.push(i);
             for (let g of l)
                 getId("glyph-" + g).style.opacity = "1";
             updateStuff();
@@ -215,6 +227,7 @@ export function Initialize() {
         for (let g = 0; g < 20; g++)
             getId("glyph-" + g).style.opacity = "0.1";
         getId("name").textContent = "Select a glyph or create one by clicking the lines";
+        getId("save").style.top = "20px";
     };
     // Saving
     getId("save-name").onchange = () => {
@@ -223,9 +236,9 @@ export function Initialize() {
             return;
         let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
         lexica[n] = active;
+        madeFrom[n] = components;
         customs.push(n);
-        getId("name").textContent = n;
-        getId("save").style.top = "20px";
+        updateStuff();
         getId("save-name").value = "";
         // Reload sidebar
         getId("left-sidebar").innerHTML = "<i class='help'>Hold shift to combine</i>";
@@ -239,8 +252,10 @@ export function Initialize() {
                 if (!shifting) {
                     for (let g = 0; g < 20; g++)
                         getId("glyph-" + g).style.opacity = "0.1";
+                    components = [];
                 }
                 let l = lexica[i];
+                components.push(i);
                 for (let g of l)
                     getId("glyph-" + g).style.opacity = "1";
                 updateStuff();
