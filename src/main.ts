@@ -1,5 +1,5 @@
 let getId = (x: string) => document.getElementById(x) as HTMLElement;
-let recurse2 = (x: string) => madeFrom[x] ? madeFrom[x].map(y => [y, ...recurse2(y)]) : ["ERROR"];
+let recurse2 = (x: string): string[] => madeFrom[x] ? madeFrom[x].map(y => [y, ...recurse2(y)]) : ["ERROR"];
 let getSelection = () => window.getSelection().toString();
 
 let shifting = false;
@@ -109,6 +109,7 @@ add("Artificer", "Grief", "Slugcat");
 add("Gourmand", "Like", "Food", "Slugcat");
 add("Lizard", "Eat", "Slugcat");
 add("Monk", "Help", "Slugcat");
+add("Saint", "Cycle", "Slugcat");
 add("Small", "No", "Big");
 add("Slugpup", "Small", "Slugcat");
 add("Spear", "Kill", "Object");
@@ -134,7 +135,7 @@ function updateStuff() {
   let match = Object.entries(lexica).filter(x => x[1].filter(y => active.includes(y)).length == x[1].length && x[1].length == active.length);
   let curse = (x: string) => madeFrom[x] ? (madeFrom[x].length ? " (" + madeFrom[x].join(" + ") + ")" : "") : "ERROR";
   let recurse = (x: string) => madeFrom[x] ? (madeFrom[x].length ? " (" + madeFrom[x].map(y => y + curse(y)).join(" + ") + ")" : "") : "ERROR";
-  let recursed = components.map(x => [x, ...recurse2(x).flat(9)]).filter((x, i, a) => {let b = a.filter(y => x.slice(1).filter(z => y.includes(z)).length == x.length - 1); return b[b.length - 1] == x;}).map(x => x[0]);
+  let recursed = components.map(x => [x, ...recurse2(x).flat(9)]).map(x => x[0]);
   if(active.length) getId("name").textContent = (match.length ? match.map(x => x[0]).join("/") + recurse(match[0][0]) : "Unknown Glyph" + (recursed.length ? " (" + recursed.map(y => y + curse(y)).join(" + ") + ")" : ""));
   if(match.length || !active.length) {
     getId("save").style.top = "20px";
@@ -148,6 +149,20 @@ export function Initialize() {
     if(i.style.opacity == "1") i.style.opacity = "0.1";
     else i.style.opacity = "1";
     components = [];
+    updateStuff();
+  }
+  let clickFunc = (i: string) => {
+    if(!shifting) {
+      for(let g = 0; g < 20; g++) getId("glyph-" + g).style.opacity = "0.1";
+      components = [];
+    }
+    let l = lexica[i];
+    // Check if this is already contained
+    let recursed = components.map(x => [x, ...recurse2(x).flat(9)]).flat();
+    // And see if other ones need to be removed
+    components = components.filter(x => ![i, ...recurse2(i)].includes(x));
+    if(!recursed.includes(i)) components.push(i);
+    for(let g of l) getId("glyph-" + g).style.opacity = "1";
     updateStuff();
   }
   // Add lines
@@ -207,16 +222,7 @@ export function Initialize() {
     let el = document.createElement("div");
     el.classList.add("lex-entry");
     el.textContent = i;
-    el.onclick = () => {
-      if(!shifting) {
-        for(let g = 0; g < 20; g++) getId("glyph-" + g).style.opacity = "0.1";
-        components = [];
-      }
-      let l = lexica[i];
-      components.push(i);
-      for(let g of l) getId("glyph-" + g).style.opacity = "1";
-      updateStuff();
-    }
+    el.onclick = () => clickFunc(i);
     getId("glyphs").appendChild(el);
   }
   getId("clear-name").onclick = () => {
@@ -241,16 +247,7 @@ export function Initialize() {
       el.classList.add("lex-entry");
       if(customs.includes(i)) el.classList.add("lex-custom");
       el.textContent = i;
-      el.onclick = () => {
-        if(!shifting) {
-          for(let g = 0; g < 20; g++) getId("glyph-" + g).style.opacity = "0.1";
-          components = [];
-        }
-        let l = lexica[i];
-        components.push(i);
-        for(let g of l) getId("glyph-" + g).style.opacity = "1";
-        updateStuff();
-      }
+      el.onclick = () => clickFunc(i);
       getId("glyphs").appendChild(el);
     }
   }
@@ -268,16 +265,7 @@ export function Initialize() {
       el.classList.add("lex-entry");
       if(customs.includes(i)) el.classList.add("lex-custom");
       el.textContent = i;
-      el.onclick = () => {
-        if(!shifting) {
-          for(let g = 0; g < 20; g++) getId("glyph-" + g).style.opacity = "0.1";
-          components = [];
-        }
-        let l = lexica[i];
-        components.push(i);
-        for(let g of l) getId("glyph-" + g).style.opacity = "1";
-        updateStuff();
-      }
+      el.onclick = () => clickFunc(i);
       getId("glyphs").appendChild(el);
     }
   }, 200);
