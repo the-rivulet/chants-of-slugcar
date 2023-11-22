@@ -98,10 +98,9 @@ add("Predator", "Eat", "Creature");
 add("Prey", "Edible", "Creature");
 add("Purposed", "Iterator", "Created");
 add("Rain", "Kill", "Water");
-add("Reproduce", "Create", "Creatures");
 add("Return", "Approach", "Plural");
 add("Rock", "Attack", "Object");
-add("Rot", "Eat", "Iterator");
+add("Rot", "Iterator", "Enemy");
 add("Sad", "Bad", "Emotion");
 add("Silent", "No", "Talk");
 add("Slugcat", "Outer Expanse", "Creature");
@@ -123,6 +122,7 @@ add("You", "No", "Me");
 // Plurals
 for(let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Spear", "Weapon"]) add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
+add("Reproduce", "Create", "Creatures");
 
 function updateStuff() {
   let active = Array.from(getId("images").children).filter(x => (x as HTMLElement).style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
