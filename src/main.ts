@@ -112,6 +112,7 @@ add("Gourmand", "Like", "Food", "Slugcat");
 add("Lizard", "Eat", "Slugcat");
 add("Monk", "Help", "Slugcat");
 add("Saint", "Cycle", "Slugcat");
+add("Scavenger Toll", "Scavenger", "Place");
 add("Small", "No", "Big");
 add("Slugpup", "Small", "Slugcat");
 add("Spear", "Kill", "Object");
