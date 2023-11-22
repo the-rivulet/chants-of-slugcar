@@ -108,8 +108,10 @@ add("Rock", "Attack", "Object");
 add("Rot", "Iterator", "Predator");
 add("Sad", "Bad", "Emotion");
 add("Silent", "No", "Talk");
+add("Sliver of Straw", "Ascended", "Iterator");
 add("Slugcat", "Outer Expanse", "Creature");
 add("Artificer", "Grief", "Slugcat");
+add("Batfly", "Slugcat", "Edible");
 add("Gourmand", "Like", "Food", "Slugcat");
 add("Lizard", "Eat", "Slugcat");
 add("Monk", "Help", "Slugcat");
@@ -270,7 +272,7 @@ export function Initialize() {
         let v = value.toLowerCase();
         let results = Object.keys(lexica).filter(x => x.toLowerCase().includes(v) || recurse2(x).join("¥").toLowerCase().includes(v));
         if (!results.length)
-            return;
+            results = Object.keys(lexica);
         getId("glyphs").textContent = "";
         getId("searcher").value = value;
         if (focused)
