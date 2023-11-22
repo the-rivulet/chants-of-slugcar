@@ -93,3 +93,17 @@
 .help {
   padding: 10px;
 }
+
+#searcher {
+  border-radius: 10px;
+  padding: 3px;
+  margin: 10px;
+  width: 80%;
+  background: #6aa;
+  outline: none;
+  font-size: 14px;
+}
+
+#searcher::placeholder {
+  color: black;
+}

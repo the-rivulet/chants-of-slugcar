@@ -1,4 +1,6 @@
 let getId = (x) => document.getElementById(x);
+let recurse2 = (x) => madeFrom[x] ? madeFrom[x].map(y => [y, ...recurse2(y)]) : ["ERROR"];
+let getSelection = () => window.getSelection().toString();
 let shifting = false;
 document.onkeydown = (e) => { if (e.key == "Shift")
     shifting = true; };
@@ -59,6 +61,7 @@ add("Approach", "Go", "Here");
 add("Ancient", "Past", "Creature");
 add("Bad", "No", "Good");
 add("Dislike", "Bad");
+add("Broadcast", "Iterator", "Talk");
 add("Corpse", "Death", "Creature");
 add("Carnivore", "Eat", "Corpse");
 add("Created", "Past", "Create");
@@ -74,7 +77,6 @@ add("Bubble Fruit", "Water", "Food");
 add("Far", "No", "Here");
 add("Five Pebbles", "Hostile", "Iterator");
 add("Friend", "Good", "Creature");
-add("Befriend", "Become", "Friend");
 add("Grenade", "Explosion", "Object");
 add("Grief", "Death", "Emotion");
 add("Happy", "Good", "Emotion");
@@ -100,15 +102,17 @@ add("Predator", "Eat", "Creature");
 add("Prey", "Edible", "Creature");
 add("Purposed", "Iterator", "Created");
 add("Rain", "Kill", "Water");
-add("Reproduce", "Create", "Creature");
+add("Reproduce", "Create", "Creatures");
 add("Return", "Approach", "Plural");
 add("Rock", "Attack", "Object");
+add("Rot", "Eat", "Iterator");
 add("Sad", "Bad", "Emotion");
 add("Silent", "No", "Talk");
 add("Slugcat", "Outer Expanse", "Creature");
 add("Artificer", "Grief", "Slugcat");
 add("Gourmand", "Like", "Food", "Slugcat");
 add("Lizard", "Eat", "Slugcat");
+add("Monk", "Help", "Slugcat");
 add("Small", "No", "Big");
 add("Slugpup", "Small", "Slugcat");
 add("Spear", "Kill", "Object");
@@ -132,7 +136,6 @@ function updateStuff() {
     let match = Object.entries(lexica).filter(x => x[1].filter(y => active.includes(y)).length == x[1].length && x[1].length == active.length);
     let curse = (x) => madeFrom[x] ? (madeFrom[x].length ? " (" + madeFrom[x].join(" + ") + ")" : "") : "ERROR";
     let recurse = (x) => madeFrom[x] ? (madeFrom[x].length ? " (" + madeFrom[x].map(y => y + curse(y)).join(" + ") + ")" : "") : "ERROR";
-    let recurse2 = (x) => madeFrom[x] ? madeFrom[x].map(y => [y, ...recurse2(y)]) : ["ERROR"];
     let recursed = components.map(x => [x, ...recurse2(x).flat(9)]).filter((x, i, a) => { let b = a.filter(y => x.slice(1).filter(z => y.includes(z)).length == x.length - 1); return b[b.length - 1] == x; }).map(x => x[0]);
     if (active.length)
         getId("name").textContent = (match.length ? match.map(x => x[0]).join("/") + recurse(match[0][0]) : "Unknown Glyph" + (recursed.length ? " (" + recursed.map(y => y + curse(y)).join(" + ") + ")" : ""));
@@ -204,7 +207,7 @@ export function Initialize() {
     horiz(20.8, -2.7, 19.8, -10, 0, -45);
     horiz(20.8, 11.3, 19.8, -10, -5, -45);
     // Add words
-    getId("left-sidebar").innerHTML = "<i class='help'>Hold shift to combine</i>";
+    getId("glyphs").textContent = "";
     for (let i of Object.keys(lexica).sort()) {
         let el = document.createElement("div");
         el.classList.add("lex-entry");
@@ -221,7 +224,7 @@ export function Initialize() {
                 getId("glyph-" + g).style.opacity = "1";
             updateStuff();
         };
-        getId("left-sidebar").appendChild(el);
+        getId("glyphs").appendChild(el);
     }
     getId("clear-name").onclick = () => {
         for (let g = 0; g < 20; g++)
@@ -241,7 +244,7 @@ export function Initialize() {
         updateStuff();
         getId("save-name").value = "";
         // Reload sidebar
-        getId("left-sidebar").innerHTML = "<i class='help'>Hold shift to combine</i>";
+        getId("glyphs").textContent = "";
         for (let i of Object.keys(lexica).sort()) {
             let el = document.createElement("div");
             el.classList.add("lex-entry");
@@ -260,7 +263,39 @@ export function Initialize() {
                     getId("glyph-" + g).style.opacity = "1";
                 updateStuff();
             };
-            getId("left-sidebar").appendChild(el);
+            getId("glyphs").appendChild(el);
         }
     };
+    setInterval(() => {
+        let value = getId("searcher").value;
+        let focused = getId("searcher") == document.activeElement;
+        let v = value.toLowerCase();
+        let results = Object.keys(lexica).filter(x => x.toLowerCase().includes(v) || recurse2(x).join("¥").toLowerCase().includes(v));
+        if (!results.length)
+            return;
+        getId("glyphs").textContent = "";
+        getId("searcher").value = value;
+        if (focused)
+            getId("searcher").focus();
+        for (let i of results.sort()) {
+            let el = document.createElement("div");
+            el.classList.add("lex-entry");
+            if (customs.includes(i))
+                el.classList.add("lex-custom");
+            el.textContent = i;
+            el.onclick = () => {
+                if (!shifting) {
+                    for (let g = 0; g < 20; g++)
+                        getId("glyph-" + g).style.opacity = "0.1";
+                    components = [];
+                }
+                let l = lexica[i];
+                components.push(i);
+                for (let g of l)
+                    getId("glyph-" + g).style.opacity = "1";
+                updateStuff();
+            };
+            getId("glyphs").appendChild(el);
+        }
+    }, 200);
 }
