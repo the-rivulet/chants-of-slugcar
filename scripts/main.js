@@ -80,6 +80,7 @@ add("Friend", "Good", "Creature");
 add("Grenade", "Explosion", "Object");
 add("Grief", "Death", "Emotion");
 add("Happy", "Good", "Emotion");
+add("Hunger", "Eat", "Emotion");
 add("Hate", "Big", "Dislike");
 add("Enemy", "Hate", "Creature");
 add("Heal", "No", "Hurt");
