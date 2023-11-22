@@ -111,6 +111,7 @@ add("Batfly", "Slugcat", "Edible");
 add("Gourmand", "Like", "Food", "Slugcat");
 add("Lizard", "Eat", "Slugcat");
 add("Monk", "Help", "Slugcat");
+add("Rivulet", "Water", "Slugcat");
 add("Saint", "Cycle", "Slugcat");
 add("Scavenger Toll", "Scavenger", "Place");
 add("Small", "No", "Big");
