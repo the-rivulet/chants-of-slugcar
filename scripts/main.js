@@ -8,7 +8,7 @@ document.onkeyup = (e) => { if (e.key == "Shift")
     shifting = false; };
 // Basics
 let lexica = {
-    Allowed: [4, 9, 15],
+    Allowed: [4, 9, 15], Yes: [4, 9, 15],
     Attack: [5, 6], Hostile: [5, 6],
     And: [19], Plural: [19],
     Big: [0, 1, 4, 9],
@@ -87,6 +87,7 @@ add("Heal", "No", "Hurt");
 add("Help", "No", "Attack");
 add("Harmless", "Help");
 add("Love", "Big", "Like");
+add("Neuron Fly", "Iterator", "Food");
 add("No Significant Harassment", "Harmless", "Iterator");
 add("Owner", "Creature", "Have");
 add("Kill", "Hurt", "Death");
