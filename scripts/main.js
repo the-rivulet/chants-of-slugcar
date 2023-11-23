@@ -35,6 +35,7 @@ let lexica = {
     To: [13, 19], Become: [13, 19],
     Up: [2, 7, 12],
     Water: [8, 14, 15],
+    Way: [13, 14],
     West: [5, 14, 16]
 };
 let madeFrom = {};
