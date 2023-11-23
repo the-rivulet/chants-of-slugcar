@@ -26,7 +26,7 @@ let lexica = {
     Iterator: [3, 8, 12],
     No: [17, 18],
     Object: [5, 7, 8, 10],
-    Past: [12, 15],
+    Past: [12, 15], Time: [12, 15],
     Place: [8, 14], Here: [8, 14],
     Question: [1, 8, 17],
     Scavenger: [8, 12, 17],
@@ -131,6 +131,10 @@ add("Survive", "No", "Die");
 add("Survivor", "Survive", "Creature");
 add("Void Fluid", "Ascend", "Water");
 add("Weapon", "Hurt", "Object");
+add("What", "Object", "Question");
+add("When", "Time", "Question");
+add("Where", "Place", "Question");
+add("Who", "Creature", "Question");
 add("World", "Big", "Place");
 add("You", "No", "Me");
 // Plurals
