@@ -18,6 +18,7 @@ let lexica = {
     Death: [7, 10, 11],
     Eat: [6, 13],
     Emotion: [2, 8, 12, 14],
+    Fire: [3, 12, 13],
     Go: [10, 11, 15],
     Good: [3, 4, 13], Like: [3, 4, 13],
     Greeting: [3, 8, 17],
