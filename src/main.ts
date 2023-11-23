@@ -125,7 +125,7 @@ add("Explosive Spear", "Explosion", "Spear");
 add("Spearmaster", "Creature", "Create", "Spear");
 add("Survive", "No", "Die");
 add("Survivor", "Survive", "Creature");
-add("Void Fluid", "Ascend", "Object");
+add("Void Fluid", "Ascend", "Water");
 add("Weapon", "Hurt", "Object");
 add("World", "Big", "Place");
 add("You", "No", "Me");
