@@ -94,6 +94,7 @@ add("Kill", "Hurt", "Death");
 add("Killer", "Kill", "Creature");
 add("Leave", "Go", "Far");
 add("Looks to the Moon", "Water", "Iterator");
+add("Mark of Communication", "Iterator", "Talk");
 add("One", "No", "Plural");
 add("Open", "Allowed", "Go");
 add("Outer Expanse", "West", "Place");
@@ -101,6 +102,7 @@ add("Forbidden", "No", "Open");
 add("Closed", "Forbidden");
 add("Pearl", "Scavenger", "Object");
 add("Predator", "Eat", "Enemy");
+add("Leech", "Water", "Predator");
 add("Prey", "Edible", "Creature");
 add("Purposed", "Iterator", "Created");
 add("Rain", "Kill", "Water");
@@ -135,6 +137,7 @@ add("You", "No", "Me");
 for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Spear", "Weapon"])
     add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
+add("Leeches", "Leech", "Plural");
 add("Reproduce", "Create", "Creatures");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
