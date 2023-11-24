@@ -123,6 +123,7 @@ add("Saint", "Cycle", "Slugcat");
 add("Scavenger Toll", "Scavenger", "Place");
 add("Seven Red Suns", "Fire", "Iterator");
 add("Small", "No", "Big");
+add("Annoyed", "Small", "Angry");
 add("Slugpup", "Small", "Slugcat");
 add("Spear", "Kill", "Object");
 add("Explosive Spear", "Explosion", "Spear");
