@@ -100,7 +100,6 @@ add("Kill", "Hurt", "Death");
 add("Killer", "Kill", "Creature");
 add("Leave", "Go", "Far");
 add("Looks to the Moon", "Water", "Iterator");
-add("Mark of Communication", "Iterator", "Talk");
 add("One", "No", "Plural");
 add("Open", "Allowed", "Go");
 add("Outer Expanse", "West", "Place");
