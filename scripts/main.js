@@ -13,7 +13,7 @@ let lexica = {
     And: [19], Plural: [19],
     Big: [0, 1, 4, 9],
     Create: [4, 5, 6, 7],
-    Creature: [3, 8, 10], Me: [3, 8, 10],
+    Creature: [3, 8, 10],
     Cycle: [13, 14, 16, 19],
     Death: [7, 10, 11],
     Eat: [6, 13],
@@ -25,6 +25,8 @@ let lexica = {
     Have: [4, 6], Take: [4, 6],
     Hurt: [5, 6, 9],
     Iterator: [3, 8, 12],
+    Me: [1, 3, 8, 10],
+    More: [12, 18],
     No: [17, 18],
     Object: [5, 7, 8, 10],
     Past: [12, 15], Time: [12, 15],
@@ -93,6 +95,7 @@ add("Heal", "No", "Hurt");
 add("Help", "No", "Attack");
 add("Harmless", "Help");
 add("Lantern", "Fire", "Object");
+add("Less", "No", "More");
 add("Love", "Big", "Like");
 add("Neuron Fly", "Iterator", "Food");
 add("No Significant Harassment", "Harmless", "Iterator");
@@ -152,6 +155,7 @@ for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosi
 add("Enemies", "Enemy", "Plural");
 add("Neuron Flies", "Neuron Fly", "Plural");
 add("Leeches", "Leech", "Plural");
+add("We", "Me", "Plural");
 add("Reproduce", "Create", "Creatures");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
