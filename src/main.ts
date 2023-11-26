@@ -125,6 +125,7 @@ add("Scavenger Toll", "Scavenger", "Place");
 add("Seven Red Suns", "Fire", "Iterator");
 add("Small", "No", "Big");
 add("Annoyed", "Small", "Angry");
+add("Snail", "Small", "Water", "Creature");
 add("Slugpup", "Small", "Slugcat");
 add("Spear", "Kill", "Object");
 add("Explosive Spear", "Explosion", "Spear");
@@ -141,7 +142,7 @@ add("Who", "Creature", "Question");
 add("World", "Big", "Place");
 add("You", "No", "Me");
 // Plurals
-for(let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Spear", "Weapon"]) add(i + "s", i, "Plural");
+for(let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"]) add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
 add("Neuron Flies", "Enemy", "Plural");
 add("Leeches", "Leech", "Plural");
