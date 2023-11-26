@@ -144,7 +144,7 @@ add("You", "No", "Me");
 // Plurals
 for(let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"]) add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
-add("Neuron Flies", "Enemy", "Plural");
+add("Neuron Flies", "Neuron Fly", "Plural");
 add("Leeches", "Leech", "Plural");
 add("Reproduce", "Create", "Creatures");
 
