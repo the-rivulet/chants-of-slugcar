@@ -8,7 +8,7 @@
   height: 100%;
   left: 0;
   top: 0;
-  background: #333;
+  background: #666;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr;

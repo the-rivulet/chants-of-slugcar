@@ -25,16 +25,18 @@ let lexica = {
     Have: [4, 6], Take: [4, 6],
     Hurt: [5, 6, 9],
     Iterator: [3, 8, 12],
+    Knowledge: [0, 3, 5, 18],
     Me: [1, 3, 8, 10],
     More: [12, 18],
     No: [17, 18],
     Object: [5, 7, 8, 10],
     Past: [12, 15], Time: [12, 15],
-    Place: [8, 14], Here: [8, 14],
+    Place: [8, 14],
     Question: [1, 8, 17],
     Scavenger: [8, 12, 17],
     Talk: [1, 3, 4, 6],
     To: [13, 19], Become: [13, 19],
+    Un: [1, 17, 18],
     Up: [2, 7, 12],
     Water: [8, 14, 15],
     Way: [13, 14],
@@ -61,7 +63,6 @@ let add = (name, ...from) => {
 // Other stuff
 add("Alive", "No", "Death");
 add("Angry", "Hostile", "Emotion");
-add("Approach", "Go", "Here");
 add("Ancient", "Past", "Creature");
 add("Bad", "No", "Good");
 add("Dislike", "Bad");
@@ -72,6 +73,7 @@ add("Corpse", "Death", "Creature");
 add("Carnivore", "Eat", "Corpse");
 add("Created", "Past", "Create");
 add("Die", "Become", "Death");
+add("Dead", "Past", "Die");
 add("Ascend", "Cycle", "Die");
 add("Ascended", "Past", "Ascend");
 add("Down", "No", "Up");
@@ -81,7 +83,6 @@ add("Embers of a Dying Fire", "Burn", "Iterator");
 add("Explosion", "Big", "Attack");
 add("Food", "Eat", "Object");
 add("Bubble Fruit", "Water", "Food");
-add("Far", "No", "Here");
 add("Five Pebbles", "Hostile", "Iterator");
 add("Friend", "Good", "Creature");
 add("Give", "No", "Take");
@@ -94,6 +95,7 @@ add("Enemy", "Bad", "Creature");
 add("Heal", "No", "Hurt");
 add("Help", "No", "Attack");
 add("Harmless", "Help");
+add("How", "Way", "Question");
 add("Lantern", "Fire", "Object");
 add("Less", "No", "More");
 add("Love", "Big", "Like");
@@ -144,10 +146,17 @@ add("Survivor", "Survive", "Creature");
 add("Void Fluid", "Ascend", "Water");
 add("Weapon", "Hurt", "Object");
 add("What", "Object", "Question");
+add("This", "Un", "What");
 add("When", "Time", "Question");
+add("Now", "Un", "When");
 add("Where", "Place", "Question");
+add("Here", "Un", "Where");
+add("Approach", "Go", "Here");
+add("Far", "No", "Here");
 add("Who", "Creature", "Question");
 add("World", "Big", "Place");
+add("Why", "Go", "Question");
+add("Because", "Un", "Why");
 add("You", "No", "Me");
 // Plurals
 for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"])
