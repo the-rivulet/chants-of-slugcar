@@ -79,6 +79,7 @@ add("Bubble Fruit", "Water", "Food");
 add("Far", "No", "Here");
 add("Five Pebbles", "Hostile", "Iterator");
 add("Friend", "Good", "Creature");
+add("Give", "No", "Take");
 add("Grenade", "Explosion", "Object");
 add("Grief", "Death", "Emotion");
 add("Happy", "Good", "Emotion");
@@ -142,6 +143,7 @@ add("You", "No", "Me");
 // Plurals
 for(let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Spear", "Weapon"]) add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
+add("Neuron Flies", "Enemy", "Plural");
 add("Leeches", "Leech", "Plural");
 add("Reproduce", "Create", "Creatures");
 
