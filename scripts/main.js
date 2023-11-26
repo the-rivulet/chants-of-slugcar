@@ -150,7 +150,6 @@ add("Now", "Un", "When");
 add("Where", "Place", "Question");
 add("Here", "Un", "Where");
 add("Approach", "Go", "Here");
-add("Leave", "Go", "Far");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
 add("World", "Big", "Place");
