@@ -78,6 +78,7 @@ add("Ascend", "Cycle", "Die");
 add("Ascended", "Past", "Ascend");
 add("Down", "No", "Up");
 add("East", "No", "West");
+add("Echo", "Un", "Ascend", "Creature");
 add("Edible", "Allowed", "Eat");
 add("Embers of a Dying Fire", "Burn", "Iterator");
 add("Explosion", "Big", "Attack");
