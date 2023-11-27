@@ -32,6 +32,7 @@ let lexica = {
     Object: [5, 7, 8, 10],
     Past: [12, 15], Time: [12, 15],
     Place: [8, 14],
+    Plant: [1, 3, 8],
     Question: [1, 8, 17],
     Scavenger: [8, 12, 17],
     Talk: [1, 3, 4, 6],
@@ -157,11 +158,12 @@ add("Approach", "Go", "Here");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
 add("World", "Big", "Place");
+add("Worm Grass", "Kill", "Plant");
 add("Why", "Go", "Question");
 add("Because", "Un", "Why");
 add("You", "No", "Me");
 // Plurals
-for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"])
+for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Plant", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"])
     add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
 add("Neuron Flies", "Neuron Fly", "Plural");
