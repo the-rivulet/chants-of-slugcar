@@ -22,7 +22,7 @@ let lexica = {
     Go: [10, 11, 15],
     Good: [3, 4, 13], Like: [3, 4, 13],
     Greeting: [3, 8, 17],
-    Have: [4, 6], Take: [4, 6],
+    Have: [4, 6],
     Hurt: [5, 6, 9],
     Iterator: [3, 8, 12],
     Knowledge: [0, 3, 5, 18],
@@ -88,7 +88,6 @@ add("Bubble Fruit", "Water", "Food");
 add("Five Pebbles", "Hostile", "Iterator");
 add("Five Pebbles (Region)", "Five Pebbles", "Place");
 add("Friend", "Good", "Creature");
-add("Give", "No", "Take");
 add("Grenade", "Explosion", "Object");
 add("Grow", "Become", "Big");
 add("Grief", "Death", "Emotion");
@@ -146,6 +145,8 @@ add("Starve", "Big", "Hunger");
 add("Spearmaster", "Creature", "Create", "Spear");
 add("Survive", "No", "Die");
 add("Survivor", "Survive", "Creature");
+add("Take", "Become", "Have");
+add("Give", "No", "Take");
 add("Void Fluid", "Ascend", "Water");
 add("Weapon", "Hurt", "Object");
 add("What", "Object", "Question");
