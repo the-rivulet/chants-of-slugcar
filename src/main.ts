@@ -126,6 +126,7 @@ add("Leech", "Water", "Predator");
 add("Prey", "Edible", "Creature");
 add("Purposed", "Iterator", "Created");
 add("Rain", "Kill", "Water");
+add("Rebirth", "Un", "Death");
 add("Reproduce", "Create", "Creature");
 add("Rock", "Attack", "Object");
 add("Rot", "Iterator", "Predator");
