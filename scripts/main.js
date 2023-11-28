@@ -83,6 +83,7 @@ add("Dislike", "Bad");
 add("Broadcast", "Iterator", "Talk");
 add("Mark of Communication", "Broadcast");
 add("Burn", "Fire", "Hurt");
+add("But", "Un", "And");
 add("Corpse", "Death", "Creature");
 add("Carnivore", "Eat", "Corpse");
 add("Created", "Past", "Create");
