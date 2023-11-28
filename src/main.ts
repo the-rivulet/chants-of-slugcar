@@ -116,7 +116,6 @@ add("Owner", "Creature", "Have");
 add("Kill", "Hurt", "Death");
 add("Killer", "Kill", "Creature");
 add("Looks to the Moon", "Water", "Iterator");
-add("One", "No", "Plural");
 add("Open", "Allowed", "Go");
 add("Outer Expanse", "West", "Place");
 add("Forbidden", "No", "Open"); add("Closed", "Forbidden");
@@ -170,6 +169,7 @@ add("Worm Grass", "Kill", "Plant");
 add("Why", "Go", "Question");
 add("Because", "Un", "Why");
 add("You", "No", "Me");
+add("Zero", "No");
 // Plurals
 for(let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Plant", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"]) add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
