@@ -35,6 +35,7 @@ let lexica = {
     Greeting: [3, 8, 17],
     Have: [4, 6],
     Hurt: [5, 6, 9],
+    In: [9, 11, 15],
     Iterator: [3, 8, 12],
     Knowledge: [0, 3, 5, 18],
     Me: [1, 3, 8, 10],
@@ -73,6 +74,7 @@ let add = (name, ...from) => {
     madeFrom[name] = from.length == 1 ? madeFrom[from[0]] : from;
 };
 // Other stuff
+add("Above", "Up", "In");
 add("Alive", "No", "Death");
 add("Angry", "Hostile", "Emotion");
 add("Ancient", "Past", "Creature");
@@ -89,6 +91,7 @@ add("Dead", "Past", "Die");
 add("Ascend", "Cycle", "Die");
 add("Ascended", "Past", "Ascend");
 add("Down", "No", "Up");
+add("Below", "Down", "In");
 add("East", "No", "West");
 add("Echo", "Un", "Ascend", "Creature");
 add("Edible", "Allowed", "Eat");
