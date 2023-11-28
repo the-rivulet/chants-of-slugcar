@@ -86,11 +86,9 @@ add("Burn", "Fire", "Hurt");
 add("But", "Un", "And");
 add("Corpse", "Death", "Creature");
 add("Carnivore", "Eat", "Corpse");
-add("Created", "Past", "Create");
 add("Die", "Become", "Death");
 add("Dead", "Past", "Die");
 add("Ascend", "Cycle", "Die");
-add("Ascended", "Past", "Ascend");
 add("Down", "No", "Up");
 add("Below", "Down", "In");
 add("East", "No", "West");
@@ -166,7 +164,6 @@ add("Survivor", "Survive", "Creature");
 add("Take", "Become", "Have");
 add("Give", "No", "Take");
 add("Void Fluid", "Ascend", "Water");
-add("Was", "Past", "Be");
 add("Weapon", "Hurt", "Object");
 add("What", "Object", "Question");
 add("This", "Un", "What");
@@ -175,6 +172,7 @@ add("Now", "Un", "When");
 add("Where", "Place", "Question");
 add("Here", "Un", "Where");
 add("Approach", "Go", "Here");
+add("Leave", "No", "Approach");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
 add("World", "Big", "Place");
@@ -191,13 +189,18 @@ add("Leeches", "Leech", "Plural");
 add("Neuron Flies", "Neuron Fly", "Plural");
 add("We", "Me", "Plural");
 // Past Tense
-for (let i of ["Kill", "Attack", "Burn"])
+for (let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Return"])
     add(i + "ed", "Past", i);
 add("Ate", "Past", "Eat");
+add("Created", "Past", "Create");
 add("Gave", "Past", "Give");
 add("Grew", "Past", "Grow");
+add("Had", "Past", "Have");
+add("Left", "Past", "Leave");
+add("Liked", "Past", "Like");
 add("Loved", "Past", "Love");
 add("Took", "Past", "Take");
+add("Was", "Past", "Be");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
     if (!active.length) {
