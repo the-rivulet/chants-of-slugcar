@@ -87,7 +87,6 @@ add("But", "Un", "And");
 add("Corpse", "Death", "Creature");
 add("Carnivore", "Eat", "Corpse");
 add("Die", "Become", "Death");
-add("Dead", "Past", "Die");
 add("Ascend", "Cycle", "Die");
 add("Down", "No", "Up");
 add("Below", "Down", "In");
@@ -105,6 +104,7 @@ add("Grenade", "Explosion", "Object");
 add("Grow", "Become", "Big");
 add("Grief", "Death", "Emotion");
 add("Happy", "Good", "Emotion");
+add("Herbivore", "Eat", "Plant");
 add("Hunger", "Eat", "Emotion");
 add("Hate", "Big", "Dislike");
 add("Enemy", "Bad", "Creature");
@@ -189,16 +189,16 @@ add("Leeches", "Leech", "Plural");
 add("Neuron Flies", "Neuron Fly", "Plural");
 add("We", "Me", "Plural");
 // Past Tense
-for (let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Return"])
+for (let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Open", "Return"])
     add(i + "ed", "Past", i);
+for (let i of ["Create", "Dislike", "Hate", "Like", "Love"])
+    add(i + "d", "Past", i);
 add("Ate", "Past", "Eat");
-add("Created", "Past", "Create");
+add("Dead", "Past", "Die");
 add("Gave", "Past", "Give");
 add("Grew", "Past", "Grow");
 add("Had", "Past", "Have");
 add("Left", "Past", "Leave");
-add("Liked", "Past", "Like");
-add("Loved", "Past", "Love");
 add("Took", "Past", "Take");
 add("Was", "Past", "Be");
 function updateStuff() {
