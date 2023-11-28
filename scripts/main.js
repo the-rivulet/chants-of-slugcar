@@ -114,11 +114,11 @@ add("Is", "Be");
 add("Lantern", "Fire", "Object");
 add("Less", "No", "More");
 add("Love", "Big", "Like");
+add("Monster Kelp", "Big", "Kill", "Plant");
 add("Neuron Fly", "Iterator", "Food");
 add("No Significant Harassment", "Harmless", "Iterator");
 add("Owner", "Creature", "Have");
 add("Kill", "Hurt", "Death");
-add("Killed", "Past", "Kill");
 add("Killer", "Kill", "Creature");
 add("Looks to the Moon", "Water", "Iterator");
 add("Open", "Allowed", "Go");
@@ -131,6 +131,7 @@ add("Leech", "Water", "Predator");
 add("Prey", "Edible", "Creature");
 add("Purposed", "Iterator", "Created");
 add("Rain", "Kill", "Water");
+add("Reproduce", "Create", "Creature");
 add("Rock", "Attack", "Object");
 add("Rot", "Iterator", "Predator");
 add("Sad", "Bad", "Emotion");
@@ -181,10 +182,17 @@ add("Zero", "No");
 for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Plant", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"])
     add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
-add("Neuron Flies", "Neuron Fly", "Plural");
 add("Leeches", "Leech", "Plural");
+add("Neuron Flies", "Neuron Fly", "Plural");
 add("We", "Me", "Plural");
-add("Reproduce", "Create", "Creatures");
+// Past Tense
+for (let i of ["Kill", "Attack", "Burn"])
+    add(i + "ed", "Past", i);
+add("Ate", "Past", "Eat");
+add("Gave", "Past", "Give");
+add("Grew", "Past", "Grow");
+add("Loved", "Past", "Love");
+add("Took", "Past", "Take");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
     if (!active.length) {
