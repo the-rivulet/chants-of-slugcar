@@ -37,7 +37,7 @@ let lexica = {
     Hurt: [5, 6, 9],
     In: [9, 11, 15],
     Iterator: [3, 8, 12],
-    Knowledge: [0, 3, 5, 18],
+    Knowledge: [0, 3, 5, 18], Understand: [0, 3, 5, 18],
     Me: [1, 3, 8, 10],
     More: [12, 18],
     No: [17, 18],
@@ -114,6 +114,7 @@ add("Harmless", "Help");
 add("How", "Way", "Question");
 add("Is", "Be");
 add("Lantern", "Fire", "Object");
+add("Learn", "Become", "Understand");
 add("Less", "No", "More");
 add("Love", "Big", "Like");
 add("Neuron Fly", "Iterator", "Food");
@@ -142,6 +143,7 @@ add("Shrink", "No", "Grow");
 add("Silent", "No", "Talk");
 add("Sliver of Straw", "Ascended", "Iterator");
 add("Slugcat", "Outer Expanse", "Creature");
+add("Slugscript", "Slugcat", "Talk");
 add("Artificer", "Grief", "Slugcat");
 add("Batfly", "Slugcat", "Edible");
 add("Gourmand", "Like", "Food", "Slugcat");
