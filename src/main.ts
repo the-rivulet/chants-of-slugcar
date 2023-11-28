@@ -11,6 +11,7 @@ let lexica = {
   Allowed: [4, 9, 15], Yes: [4, 9, 15],
   Attack: [5, 6], Hostile: [5, 6],
   And: [19], Plural: [19],
+  Be: [2],
   Big: [0, 1, 4, 9],
   Create: [4, 5, 6, 7],
   Creature: [3, 8, 10],
@@ -95,6 +96,7 @@ add("Enemy", "Bad", "Creature");
 add("Heal", "No", "Hurt");
 add("Help", "No", "Attack"); add("Harmless", "Help");
 add("How", "Way", "Question");
+add("Is", "Be");
 add("Lantern", "Fire", "Object");
 add("Less", "No", "More");
 add("Love", "Big", "Like");
