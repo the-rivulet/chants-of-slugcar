@@ -172,7 +172,7 @@ add("When", "Time", "Question");
 add("Now", "Un", "When");
 add("Where", "Place", "Question");
 add("Here", "Un", "Where");
-add("Approach", "Go", "Here");
+add("Approach", "Go", "Where");
 add("Leave", "No", "Approach");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
