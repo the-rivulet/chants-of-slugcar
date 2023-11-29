@@ -127,7 +127,7 @@ add("Pearl", "Scavenger", "Object");
 add("Predator", "Eat", "Enemy");
 add("Leech", "Water", "Predator");
 add("Prey", "Edible", "Creature");
-add("Purposed", "Iterator", "Created");
+add("Purpose", "Iterator", "Create");
 add("Rain", "Kill", "Water");
 add("Rebirth", "Un", "Death");
 add("Reproduce", "Create", "Creature");
@@ -136,7 +136,6 @@ add("Rot", "Iterator", "Predator");
 add("Sad", "Bad", "Emotion");
 add("Shrink", "No", "Grow");
 add("Silent", "No", "Talk");
-add("Sliver of Straw", "Ascended", "Iterator");
 add("Slugcat", "Outer Expanse", "Creature");
 add("Slugscript", "Slugcat", "Talk");
 add("Artificer", "Grief", "Slugcat");
@@ -186,7 +185,7 @@ add("Neuron Flies", "Neuron Fly", "Plural");
 add("We", "Me", "Plural");
 // Past Tense
 for(let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Open", "Return"]) add(i + "ed", "Past", i);
-for(let i of ["Create", "Dislike", "Hate", "Like", "Love"]) add(i + "d", "Past", i);
+for(let i of ["Create", "Dislike", "Hate", "Like", "Love", "Purpose"]) add(i + "d", "Past", i);
 add("Ate", "Past", "Eat");
 add("Dead", "Past", "Die");
 add("Gave", "Past", "Give");
@@ -195,6 +194,8 @@ add("Had", "Past", "Have");
 add("Left", "Past", "Leave");
 add("Took", "Past", "Take");
 add("Was", "Past", "Be");
+// other stuff
+add("Sliver of Straw", "Ascended", "Iterator");
 
 function updateStuff() {
   let active = Array.from(getId("images").children).filter(x => (x as HTMLElement).style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
