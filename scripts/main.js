@@ -195,7 +195,7 @@ add("We", "Me", "Plural");
 // Past Tense
 for (let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Open", "Return"])
     add(i + "ed", "Past", i);
-for (let i of ["Create", "Dislike", "Hate", "Like", "Love", "Purpose"])
+for (let i of ["Create", "Dislike", "Hate", "Like", "Love", "Purpose", "Believe"])
     add(i + "d", "Past", i);
 add("Ate", "Past", "Eat");
 add("Dead", "Past", "Die");
