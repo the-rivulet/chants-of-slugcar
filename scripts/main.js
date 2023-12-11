@@ -112,6 +112,9 @@ add("Heal", "No", "Hurt");
 add("Help", "No", "Attack");
 add("Harmless", "Help");
 add("How", "Way", "Question");
+add("Increase", "Go", "Up");
+add("Count", "Increase");
+add("Decrease", "No", "Increase");
 add("Is", "Be");
 add("Lantern", "Fire", "Object");
 add("Learn", "Become", "Understand");
@@ -120,6 +123,7 @@ add("Love", "Big", "Like");
 add("Most", "Big", "More");
 add("Neuron Fly", "Iterator", "Food");
 add("No Significant Harassment", "Harmless", "Iterator");
+add("Number", "Count", "Object");
 add("Owner", "Creature", "Have");
 add("Kill", "Hurt", "Death");
 add("Monster Kelp", "Big", "Kill", "Plant");
@@ -186,7 +190,7 @@ add("Because", "Un", "Why");
 add("You", "No", "Me");
 add("Zero", "No");
 // Plurals
-for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Pearl", "Place", "Plant", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"])
+for (let i of ["Ancient", "Carnivore", "Corpse", "Creature", "Emotion", "Explosion", "Explosive Spear", "Friend", "Grenade", "Iterator", "Killer", "Lizard", "Number", "Pearl", "Place", "Plant", "Predator", "Object", "Owner", "Question", "Rock", "Scavenger", "Slugcat", "Slugpup", "Snail", "Spear", "Weapon"])
     add(i + "s", i, "Plural");
 add("Enemies", "Enemy", "Plural");
 add("Leeches", "Leech", "Plural");
