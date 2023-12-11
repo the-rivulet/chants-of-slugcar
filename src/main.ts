@@ -119,6 +119,7 @@ add("Most", "Big", "More");
 add("Neuron Fly", "Iterator", "Food");
 add("No Significant Harassment", "Harmless", "Iterator");
 add("Number", "Count", "Object");
+add("Many", "Big", "Number"); add("Much", "Many");
 add("Owner", "Creature", "Have");
 add("Kill", "Hurt", "Death");
 add("Monster Kelp", "Big", "Kill", "Plant");
