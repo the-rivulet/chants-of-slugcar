@@ -177,6 +177,7 @@ add("Approach", "Go", "Where");
 add("Leave", "No", "Approach");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
+add("Will", "To", "Be");
 add("World", "Big", "Place");
 add("Worm Grass", "Kill", "Plant");
 add("Why", "Go", "Question");
