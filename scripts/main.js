@@ -171,8 +171,10 @@ add("Survive", "No", "Die");
 add("Survivor", "Survive", "Creature");
 add("Take", "Become", "Have");
 add("Give", "No", "Take");
+add("Gift", "Give", "Object");
 add("Think", "In", "Talk");
 add("Believe", "Think");
+add("Thought", "Think", "Object");
 add("Void Fluid", "Ascend", "Water");
 add("Weapon", "Hurt", "Object");
 add("What", "Object", "Question");
@@ -186,6 +188,7 @@ add("Leave", "No", "Approach");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
 add("Will", "To", "Be");
+add("Can", "Allowed", "Will");
 add("World", "Big", "Place");
 add("Worm Grass", "Kill", "Plant");
 add("Why", "Go", "Question");
@@ -212,8 +215,9 @@ add("Had", "Past", "Have");
 add("Left", "Past", "Leave");
 add("Took", "Past", "Take");
 add("Was", "Past", "Be");
-// other stuff
-add("Sliver of Straw", "Ascended", "Iterator");
+// -Able
+// Other Stuff
+add("Sliver of Straw", "Ascend", "Iterator");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
     if (!active.length) {

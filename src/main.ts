@@ -1,6 +1,5 @@
 let getId = (x: string) => document.getElementById(x) as HTMLElement;
 let recurse2 = (x: string): string[] => madeFrom[x] ? madeFrom[x].map(y => [y, ...recurse2(y)]) : ["ERROR"];
-let getSelection = () => window.getSelection().toString();
 
 let shifting = false;
 document.onkeydown = (e) => {if(e.key == "Shift") shifting = true;}
@@ -21,7 +20,7 @@ let lexica = {
   Allowed: [4, 9, 15], Yes: [4, 9, 15],
   Attack: [5, 6], Hostile: [5, 6],
   And: [19], Plural: [19],
-  Be: [2],
+  Be: [2], Is: [2],
   Big: [0, 1, 4, 9],
   Create: [4, 5, 6, 7],
   Creature: [3, 8, 10],
@@ -91,6 +90,7 @@ add("East", "No", "West");
 add("Echo", "Un", "Ascend", "Creature");
 add("Edible", "Allowed", "Eat");
 add("Embers of a Dying Fire", "Burn", "Iterator");
+add("Enemy", "Bad", "Creature");
 add("Explosion", "Big", "Attack");
 add("Food", "Eat", "Object");
 add("Bubble Fruit", "Water", "Food");
@@ -104,13 +104,12 @@ add("Happy", "Good", "Emotion");
 add("Herbivore", "Eat", "Plant");
 add("Hunger", "Eat", "Emotion");
 add("Hate", "Big", "Dislike");
-add("Enemy", "Bad", "Creature");
 add("Heal", "No", "Hurt");
 add("Help", "No", "Attack"); add("Harmless", "Help");
 add("How", "Way", "Question");
 add("Increase", "Go", "Up"); add("Count", "Increase");
 add("Decrease", "No", "Increase");
-add("Is", "Be");
+add("Isn't", "No", "Is");
 add("Lantern", "Fire", "Object");
 add("Learn", "Become", "Understand");
 add("Less", "No", "More");
@@ -164,7 +163,9 @@ add("Survive", "No", "Die");
 add("Survivor", "Survive", "Creature");
 add("Take", "Become", "Have");
 add("Give", "No", "Take");
+add("Gift", "Give", "Object");
 add("Think", "In", "Talk"); add("Believe", "Think");
+add("Thought", "Think", "Object");
 add("Void Fluid", "Ascend", "Water");
 add("Weapon", "Hurt", "Object");
 add("What", "Object", "Question");
@@ -178,6 +179,9 @@ add("Leave", "No", "Approach");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
 add("Will", "To", "Be");
+add("Can", "Allowed", "Will");
+add("Can't", "No", "Can");
+add("Won't", "No", "Will");
 add("World", "Big", "Place");
 add("Worm Grass", "Kill", "Plant");
 add("Why", "Go", "Question");
@@ -191,7 +195,7 @@ add("Leeches", "Leech", "Plural");
 add("Neuron Flies", "Neuron Fly", "Plural");
 add("We", "Me", "Plural");
 // Past Tense
-for(let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Open", "Return"]) add(i + "ed", "Past", i);
+for(let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Learn", "Open", "Return"]) add(i + "ed", "Past", i);
 for(let i of ["Create", "Dislike", "Hate", "Like", "Love", "Purpose", "Believe"]) add(i + "d", "Past", i);
 add("Ate", "Past", "Eat");
 add("Dead", "Past", "Die");
@@ -200,10 +204,10 @@ add("Grew", "Past", "Grow");
 add("Had", "Past", "Have");
 add("Left", "Past", "Leave");
 add("Took", "Past", "Take");
+add("Understood", "Past", "Understand");
 add("Was", "Past", "Be");
-// other stuff
-add("Sliver of Straw", "Ascended", "Iterator");
-
+// Other Stuff
+add("Sliver of Straw", "Ascend", "Iterator");
 function updateStuff() {
   let active = Array.from(getId("images").children).filter(x => (x as HTMLElement).style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
   if(!active.length) {
