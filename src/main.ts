@@ -197,18 +197,21 @@ add("Neuron Flies", "Neuron Fly", "Plural");
 add("We", "Me", "Plural");
 // Past Tense
 for(let i of ["Approach", "Ascend", "Attack", "Burn", "Kill", "Learn", "Open", "Return"]) add(i + "ed", "Past", i);
-for(let i of ["Create", "Dislike", "Hate", "Like", "Love", "Purpose", "Believe"]) add(i + "d", "Past", i);
+for(let i of ["Believe", "Create", "Die", "Dislike", "Hate", "Like", "Love", "Purpose", "Reproduce", "Starve", "Survive"]) add(i + "d", "Past", i);
 add("Ate", "Past", "Eat");
+add("Became", "Past", "Become");
 add("Dead", "Past", "Die");
 add("Gave", "Past", "Give");
 add("Grew", "Past", "Grow");
 add("Had", "Past", "Have");
 add("Left", "Past", "Leave");
+add("Lived", "Past", "Alive");
 add("Took", "Past", "Take");
 add("Understood", "Past", "Understand");
 add("Was", "Past", "Be");
 // Other Stuff
-add("Sliver of Straw", "Ascend", "Iterator");
+add("Sliver of Straw", "Ascended", "Iterator");
+add("Wasn't", "No", "Was");
 function updateStuff() {
   let active = Array.from(getId("images").children).filter(x => (x as HTMLElement).style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
   if(!active.length) {
