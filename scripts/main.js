@@ -17,7 +17,7 @@ let lexica = {
     "8": [0, 2, 3, 5, 6, 8, 9, 11, 17, 18],
     "9": [6, 8, 9, 11, 12, 17, 18],
     "10": [12, 15, 17, 18],
-    Allowed: [4, 9, 15], Yes: [4, 9, 15], Can: [4, 9, 15],
+    Allowed: [4, 9, 15], Yes: [4, 9, 15],
     Attack: [5, 6], Hostile: [5, 6],
     And: [19], Plural: [19],
     Be: [2], Is: [2],
@@ -100,7 +100,6 @@ add("Bubble Fruit", "Water", "Food");
 add("Five Pebbles", "Hostile", "Iterator");
 add("Five Pebbles (Region)", "Five Pebbles", "Place");
 add("Forbidden", "No", "Allowed");
-add("Can't", "Forbidden");
 add("Friend", "Good", "Creature");
 add("Grenade", "Explosion", "Object");
 add("Grow", "Become", "Big");
@@ -188,6 +187,8 @@ add("Leave", "No", "Approach");
 add("Return", "Approach", "Plural");
 add("Who", "Creature", "Question");
 add("Will", "To", "Be");
+add("Can", "Allowed", "Will");
+add("Can't", "No", "Can");
 add("Won't", "No", "Will");
 add("World", "Big", "Place");
 add("Worm Grass", "Kill", "Plant");
