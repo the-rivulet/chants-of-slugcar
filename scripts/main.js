@@ -136,7 +136,6 @@ add("Outer Expanse", "West", "Place");
 add("Pearl", "Scavenger", "Object");
 add("Predator", "Eat", "Enemy");
 add("Leech", "Water", "Predator");
-add("Prey", "Edible", "Creature");
 add("Purpose", "Iterator", "Create");
 add("Rain", "Kill", "Water");
 add("Rebirth", "Un", "Death");
@@ -149,7 +148,6 @@ add("Silent", "No", "Talk");
 add("Slugcat", "Outer Expanse", "Creature");
 add("Slugscript", "Slugcat", "Talk");
 add("Artificer", "Grief", "Slugcat");
-add("Batfly", "Slugcat", "Edible");
 add("Gourmand", "Like", "Food", "Slugcat");
 add("Lizard", "Eat", "Slugcat");
 add("Monk", "Help", "Slugcat");
@@ -216,7 +214,6 @@ add("Dead", "Past", "Die");
 add("Gave", "Past", "Give");
 add("Grew", "Past", "Grow");
 add("Had", "Past", "Have");
-add("Left", "Past", "Leave");
 add("Lived", "Past", "Alive");
 add("Took", "Past", "Take");
 add("Understood", "Past", "Understand");
@@ -224,6 +221,8 @@ add("Was", "Past", "Be");
 // Other Stuff
 add("Sliver of Straw", "Ascended", "Iterator");
 add("Wasn't", "No", "Was");
+add("Prey", "Edible", "Creature");
+add("Batfly", "Slugcat", "Edible");
 function updateStuff() {
     let active = Array.from(getId("images").children).filter(x => x.style.opacity == "1").map(x => parseInt(x.id.split("-")[1]));
     if (!active.length) {
